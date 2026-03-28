@@ -1,17 +1,17 @@
 ---
 const pathname = Astro.url.pathname;
 const links = [
-  { name: 'Home', href: '/' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Experience', href: '/experience' },
-  { name: 'Blogs', href: '/blogs' },
-  { name: 'Contact', href: '/contact' }
+  { name: 'Home', href: '/Me' },
+  { name: 'Projects', href: '/Me/projects' },
+  { name: 'Experience', href: '/Me/experience' },
+  { name: 'Blogs', href: '/Me/blogs' },
+  { name: 'Contact', href: '/Me/contact' }
 ];
 ---
 
 <header class="fixed top-0 left-0 right-0 bg-white/85 backdrop-blur-md border-b border-zinc-200 z-[1000] transition-all duration-300">
   <div class="max-w-7xl w-full mx-auto px-6 py-5 flex justify-between items-center">
-    <a href="/" class="font-display text-2xl font-extrabold tracking-tight text-zinc-900">
+    <a href="/Me" class="font-display text-2xl font-extrabold tracking-tight text-zinc-900">
       Sathyajit P Udupa
     </a>
     
