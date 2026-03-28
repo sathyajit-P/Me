@@ -1,0 +1,82 @@
+---
+const pathname = Astro.url.pathname;
+const links = [
+  { name: 'Home', href: '/' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Experience', href: '/experience' },
+  { name: 'Blogs', href: '/blogs' },
+  { name: 'Contact', href: '/contact' }
+];
+---
+
+<header class="fixed top-0 left-0 right-0 bg-white/85 backdrop-blur-md border-b border-zinc-200 z-[1000] transition-all duration-300">
+  <div class="max-w-7xl w-full mx-auto px-6 py-5 flex justify-between items-center">
+    <a href="/" class="font-display text-2xl font-extrabold tracking-tight text-zinc-900">
+      Sathyajit P Udupa
+    </a>
+    
+    <button class="md:hidden p-2 text-zinc-900 hover:text-red transition-colors cursor-pointer" aria-label="Toggle menu" id="menu-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <nav class="hidden md:flex gap-10 items-center transition-all duration-300" id="nav-links">
+      {links.map((link) => {
+        const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
+        return (
+          <a 
+            class={`font-display text-[1.05rem] font-semibold tracking-wide py-2 relative text-zinc-600 hover:text-zinc-900 transition-colors duration-300 ${isActive ? 'text-zinc-900 group active-nav' : 'group'}`} 
+            href={link.href}
+          >
+            {link.name}
+            <span class={`absolute bottom-[-2px] left-0 h-[3px] bg-red rounded-sm transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+          </a>
+        );
+      })}
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Mobile menu logic using styling due to dynamic heights */
+  @media (max-width: 768px) {
+    #nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    
+    #nav-links.show {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu logic
+  function setupMenu() {
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+    }
+  }
+
+  setupMenu();
+  document.addEventListener('astro:page-load', setupMenu);
+</script>

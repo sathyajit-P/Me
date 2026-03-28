@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const allProjects = await getCollection('projects');
+---
+
+<Layout title="Projects | Portfolio">
+  <section class="py-12">
+    <h1 class="font-display text-5xl mb-12 relative inline-block tracking-tight">My <span class="text-gradient">Projects</span></h1>
+    <p class="font-sans text-xl text-zinc-500 mb-12">A selection of my recent works in Web Development.</p>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {allProjects.map((project) => (
+        <div class="card flex flex-col h-full">
+          <h2 class="font-display text-2xl font-bold mb-3">{project.data.title}</h2>
+          <p class="font-sans text-zinc-500 mb-6 flex-grow">{project.data.description}</p>
+          
+          {project.data.tags && (
+            <div class="flex flex-wrap gap-2 mb-6">
+              {project.data.tags.map((tag) => (
+                <span class="font-sans text-xs font-semibold px-3 py-1 bg-red-100 text-red-dark rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <div class="flex flex-wrap gap-4 mt-auto">
+            {project.data.link && (
+              <a href={project.data.link} target="_blank" rel="noopener noreferrer" class="btn btn-primary px-4 py-2 text-sm">Website</a>
+            )}
+            {project.data.github && (
+              <a href={project.data.github} target="_blank" rel="noopener noreferrer" class="btn btn-outline px-4 py-2 text-sm shadow-sm">
+                GitHub Repo
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

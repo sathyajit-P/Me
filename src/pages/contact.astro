@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact | Portfolio">
+  <section class="py-12">
+    <div class="max-w-2xl mx-auto mb-16 text-center">
+      <h1 class="font-display text-5xl mb-12 relative inline-block tracking-tight">Get in <span class="text-gradient">Touch</span></h1>
+      <p class="font-sans text-lg text-zinc-500 leading-relaxed">Looking for a Web Developer for your next big project? Let's connect and build something amazing together.</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 max-w-5xl mx-auto">
+      <div class="card flex flex-col justify-center text-center order-2 md:order-1">
+        <h3 class="font-display text-3xl font-bold mb-2">Contact Information</h3>
+        <p class="font-sans text-zinc-500 mb-8">Feel free to reach out via email or connect with me on social platforms.</p>
+        
+        <ul class="flex flex-col gap-6">
+          <li class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-xl bg-red-100 flex items-center justify-center shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-red-600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <a href="mailto:sudupa2005@gmail.com" class="font-medium text-zinc-900 hover:text-red transition-colors duration-300">sudupa2005@gmail.com</a>
+          </li>
+          <li class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-xl bg-red-100 flex items-center justify-center shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-red-600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </div>
+            <a href="https://linkedin.com/in/sathyajit-p-udupa" target="_blank" class="font-medium text-zinc-900 hover:text-red transition-colors duration-300">linkedin.com/in/sathyajit-p-udupa</a>
+          </li>
+          <li class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-xl bg-red-100 flex items-center justify-center shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-red-600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </div>
+            <a href="https://github.com/sathyajit-P" target="_blank" class="font-medium text-zinc-900 hover:text-red transition-colors duration-300">github.com/sathyajit-P</a>
+          </li>
+          <li class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-xl bg-red-100 flex items-center justify-center shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-red-600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <span class="font-sans font-medium text-zinc-900">Bengaluru, Karnataka, India</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card order-1 md:order-2 hidden">
+        <h3 class="font-display text-3xl font-bold mb-6">Send a Message</h3>
+        <form class="flex flex-col gap-6" onsubmit="event.preventDefault(); alert('Form submitted!');">
+          <div class="flex flex-col gap-2">
+            <label for="name" class="text-[0.95rem] font-semibold font-display">Your Name</label>
+            <input type="text" id="name" name="name" class="px-4 py-3 border border-zinc-200 rounded-xl bg-white text-zinc-900 font-sans focus:outline-none focus:border-red focus:shadow-[0_0_0_3px_rgba(16,185,129,0.1)] transition-all duration-300" placeholder="John Doe" required />
+          </div>
+          
+          <div class="flex flex-col gap-2">
+            <label for="email" class="text-[0.95rem] font-semibold font-display">Email Address</label>
+            <input type="email" id="email" name="email" class="px-4 py-3 border border-zinc-200 rounded-xl bg-white text-zinc-900 font-sans focus:outline-none focus:border-red focus:shadow-[0_0_0_3px_rgba(16,185,129,0.1)] transition-all duration-300" placeholder="john@example.com" required />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="message" class="text-[0.95rem] font-semibold font-display">Message</label>
+            <textarea id="message" name="message" class="px-4 py-3 border border-zinc-200 rounded-xl bg-white text-zinc-900 font-sans resize-y min-h-[120px] focus:outline-none focus:border-red focus:shadow-[0_0_0_3px_rgba(16,185,129,0.1)] transition-all duration-300" rows="5" placeholder="How can I help you?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-full mt-2">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>

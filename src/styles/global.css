@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-red: #f40f0fff;
+  --color-red-light: #e74b0dff;
+  --color-red-dark: #f03232ff;
+  --font-sans: "Roboto Mono", monospace;
+  --font-display: "Roboto Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply min-h-screen flex flex-col font-sans text-zinc-900 bg-white antialiased transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold leading-tight text-zinc-900;
+  }
+
+  main {
+    @apply flex-1 pt-[120px] max-w-7xl w-full mx-auto px-6 pb-16 animate-[fadeIn_0.5s_ease-out_forwards];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-br from-red-dark to-red bg-clip-text text-transparent;
+  }
+
+  .title {
+    @apply font-display text-5xl mb-12 relative inline-block tracking-tight;
+  }
+
+  .title::after {
+    @apply content-[''] absolute -bottom-2.5 left-0 w-3/5 h-1 bg-red rounded-sm;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-zinc-50 border border-zinc-200 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(16,185,129,0.1)] hover:border-red-light;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-7 py-3 rounded-xl font-semibold font-display text-lg cursor-pointer border-none transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-red text-white shadow-[0_4px_14px_rgba(16,185,129,0.3)] hover:bg-red-dark hover:shadow-[0_6px_20px_rgba(16,185,129,0.4)] hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-zinc-900 ring-2 ring-inset ring-zinc-200 hover:ring-red hover:text-red hover:-translate-y-0.5;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
