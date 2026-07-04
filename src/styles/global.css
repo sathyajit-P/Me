@@ -1,55 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,wght@0,400..600;1,400..600&family=Roboto+Mono:ital,wght@0,400..600;1,400..600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-red: #f40f0fff;
-  --color-red-light: #e74b0dff;
-  --color-red-dark: #f03232ff;
-  --font-sans: "Roboto Mono", monospace;
-  --font-display: "Roboto Mono", monospace;
+  --color-paper: #fafaf9ff;
+  --color-ink: #171b1dff;
+  --color-graphite: #6b7178ff;
+  --color-line: #e3e1daff;
+  --color-signal: #2f5d50ff;
+  --color-signal-soft: #e1eae6ff;
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Instrument Sans", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
 }
 
 @layer base {
   body {
-    @apply min-h-screen flex flex-col font-sans text-zinc-900 bg-white antialiased transition-colors duration-300;
+    @apply min-h-screen flex flex-col font-sans text-ink bg-paper antialiased transition-colors duration-300;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold leading-tight text-zinc-900;
+    @apply font-display font-semibold leading-tight text-ink;
   }
 
   main {
-    @apply flex-1 pt-[120px] max-w-7xl w-full mx-auto px-6 pb-16 animate-[fadeIn_0.5s_ease-out_forwards];
+    @apply flex-1 pt-30 max-w-7xl w-full mx-auto px-6 pb-16 animate-[fadeIn_0.5s_ease-out_forwards];
   }
 
-  .text-gradient {
-    @apply bg-gradient-to-br from-red-dark to-red bg-clip-text text-transparent;
+  .eyebrow {
+    @apply font-mono text-xs font-medium text-signal tracking-[0.18em] uppercase;
   }
 
   .title {
-    @apply font-display text-5xl mb-12 relative inline-block tracking-tight;
+    @apply font-display text-5xl mb-5 tracking-tight;
   }
 
-  .title::after {
-    @apply content-[''] absolute -bottom-2.5 left-0 w-3/5 h-1 bg-red rounded-sm;
+  .title-rule {
+    @apply flex items-center gap-3 w-full mb-12;
+  }
+
+  .title-rule::before {
+    @apply content-[''] w-2 h-2 bg-signal rounded-full shrink-0;
+  }
+
+  .title-rule::after {
+    @apply content-[''] flex-1 h-px bg-line;
   }
 }
 
 @layer components {
   .card {
-    @apply bg-zinc-50 border border-zinc-200 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(16,185,129,0.1)] hover:border-red-light;
+    @apply bg-white border border-line border-l-[3px] rounded-lg p-8 transition-all duration-300 hover:border-l-signal hover:shadow-[0_8px_24px_rgba(23,27,29,0.06)];
   }
 
   .btn {
-    @apply inline-flex items-center justify-center px-7 py-3 rounded-xl font-semibold font-display text-lg cursor-pointer border-none transition-all duration-300;
+    @apply inline-flex items-center justify-center px-7 py-3 rounded-md font-medium font-display text-lg cursor-pointer border-none transition-all duration-300;
   }
 
   .btn-primary {
-    @apply bg-red text-white shadow-[0_4px_14px_rgba(16,185,129,0.3)] hover:bg-red-dark hover:shadow-[0_6px_20px_rgba(16,185,129,0.4)] hover:-translate-y-0.5;
+    @apply bg-signal text-paper hover:bg-ink;
   }
 
   .btn-outline {
-    @apply bg-transparent text-zinc-900 ring-2 ring-inset ring-zinc-200 hover:ring-red hover:text-red hover:-translate-y-0.5;
+    @apply bg-transparent text-ink ring-1 ring-inset ring-line hover:ring-signal hover:text-signal;
   }
 }
 

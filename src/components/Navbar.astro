@@ -1,21 +1,19 @@
 ---
 const pathname = Astro.url.pathname;
 const links = [
-  { name: 'Home', href: '/Me' },
   { name: 'Projects', href: '/Me/projects' },
   { name: 'Experience', href: '/Me/experience' },
-  { name: 'Blogs', href: '/Me/blogs' },
-  { name: 'Contact', href: '/Me/contact' }
+  { name: 'Blogs', href: '/Me/blogs' }
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 bg-white/85 backdrop-blur-md border-b border-zinc-200 z-[1000] transition-all duration-300">
+<header class="fixed top-0 left-0 right-0 bg-paper/90 backdrop-blur-md border-b border-line z-1000 transition-all duration-300">
   <div class="max-w-7xl w-full mx-auto px-6 py-5 flex justify-between items-center">
-    <a href="/Me" class="font-display text-2xl font-extrabold tracking-tight text-zinc-900">
-      Sathyajit P Udupa
+    <a href="/Me" class="font-display text-xl font-semibold tracking-tight text-ink">
+      Home
     </a>
-    
-    <button class="md:hidden p-2 text-zinc-900 hover:text-red transition-colors cursor-pointer" aria-label="Toggle menu" id="menu-btn">
+
+    <button class="md:hidden p-2 text-ink hover:text-signal transition-colors cursor-pointer" aria-label="Toggle menu" id="menu-btn">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="3" y1="12" x2="21" y2="12"></line>
         <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -23,16 +21,16 @@ const links = [
       </svg>
     </button>
 
-    <nav class="hidden md:flex gap-10 items-center transition-all duration-300" id="nav-links">
+    <nav class="hidden md:flex gap-9 items-center transition-all duration-300" id="nav-links">
       {links.map((link) => {
-        const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
+        const isActive = link.href === '/Me' ? pathname === '/Me' : pathname.startsWith(link.href);
         return (
-          <a 
-            class={`font-display text-[1.05rem] font-semibold tracking-wide py-2 relative text-zinc-600 hover:text-zinc-900 transition-colors duration-300 ${isActive ? 'text-zinc-900 group active-nav' : 'group'}`} 
+          <a
+            class={`font-mono text-sm tracking-wide py-2 flex items-center gap-2 text-graphite hover:text-ink transition-colors duration-300 ${isActive ? 'text-ink' : ''}`}
             href={link.href}
           >
+            <span class={`w-1.5 h-1.5 rounded-full bg-signal transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'}`}></span>
             {link.name}
-            <span class={`absolute bottom-[-2px] left-0 h-[3px] bg-red rounded-sm transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
           </a>
         );
       })}
@@ -48,12 +46,12 @@ const links = [
       top: 100%;
       left: 0;
       right: 0;
-      background: white;
+      background: #fafaf9;
       display: flex;
       flex-direction: column;
       padding: 2rem;
       gap: 1.5rem;
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid #e3e1da;
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
       clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }

@@ -17,11 +17,11 @@ const { Content } = await render(blog);
 <Layout title={`${blog.data.title} | Blog`}>
   <article class="max-w-3xl mx-auto py-12">
     <header class="mb-12">
-      <a href="/blogs" class="inline-block mb-8 text-sm font-semibold text-zinc-500 hover:text-red transition-colors duration-300">
+      <a href="/blogs" class="inline-block mb-8 font-mono text-sm text-graphite hover:text-signal transition-colors duration-300">
         ← Back to Blogs
       </a>
-      <p class="text-red font-semibold uppercase tracking-wider text-sm mb-4">{blog.data.date}</p>
-      <h1 class="font-display text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight text-zinc-900">
+      <p class="eyebrow mb-4">{blog.data.date}</p>
+      <h1 class="font-display text-4xl sm:text-5xl font-semibold leading-tight tracking-tight text-ink">
         {blog.data.title}
       </h1>
     </header>
@@ -36,15 +36,15 @@ const { Content } = await render(blog);
   @reference "../../styles/global.css";
 
   .markdown-body {
-    @apply text-lg leading-relaxed text-zinc-600;
+    @apply text-lg leading-relaxed text-graphite;
   }
 
   .markdown-body h2 {
-    @apply font-display text-3xl font-bold text-zinc-900 mt-12 mb-4;
+    @apply font-display text-3xl font-semibold text-ink mt-12 mb-4;
   }
 
   .markdown-body h3 {
-    @apply font-display text-2xl font-bold text-zinc-900 mt-10 mb-4;
+    @apply font-display text-2xl font-semibold text-ink mt-10 mb-4;
   }
 
   .markdown-body p {
@@ -60,10 +60,10 @@ const { Content } = await render(blog);
   }
 
   .markdown-body a {
-    @apply text-red underline decoration-transparent hover:decoration-red transition-colors duration-300;
+    @apply text-signal underline decoration-transparent hover:decoration-signal transition-colors duration-300;
   }
 
   .markdown-body blockquote {
-    @apply border-l-4 border-red pl-4 ml-0 italic bg-zinc-50 py-4 pr-4 rounded-r-xl my-8;
+    @apply border-l-2 border-signal pl-4 ml-0 italic bg-white py-4 pr-4 rounded-r-md my-8;
   }
 </style>

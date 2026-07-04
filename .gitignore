@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 README.md
 astro.md
+
+.claude
+.agents
